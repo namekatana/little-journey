@@ -105,7 +105,7 @@ export function TimelineCard({
       </div>
 
       <article
-        className={`timeline-card-panel flex min-w-0 flex-1 flex-col overflow-hidden border shadow-[var(--card-shadow)] backdrop-blur-md transition-[opacity,transform,box-shadow,border-color] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${v.panel} ${
+        className={`timeline-card-panel card-glass flex min-w-0 flex-1 flex-col overflow-hidden shadow-[var(--card-shadow)] transition-[opacity,transform,box-shadow,border-color] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${v.panel} ${
           visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         } ${giftLocked ? 'grayscale opacity-70' : 'group-hover:-translate-y-0.5 group-hover:scale-[1.004] group-hover:duration-700'}`}
         style={{
@@ -641,7 +641,7 @@ function GiftCard({
                   <button
                     type="button"
                     onClick={onAccept}
-                    className="font-ui w-full rounded-full border border-white/14 bg-white/6 px-4 py-2.5 text-xs font-semibold tracking-[0.18em] text-stone-100/90 transition hover:border-white/22 hover:bg-white/8 active:scale-[0.98] sm:w-auto sm:shrink-0 sm:px-4 sm:py-2"
+                    className="font-ui btn-primary w-full rounded-full px-4 py-2.5 text-xs font-semibold tracking-[0.18em] text-stone-100/90 sm:w-auto sm:shrink-0 sm:px-4 sm:py-2"
                   >
                     Хорошо
                   </button>

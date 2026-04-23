@@ -77,27 +77,45 @@ export function TimelineScreen({ onBack, active = true }: TimelineScreenProps) {
         <div className="absolute inset-0 opacity-[0.28] [background-image:radial-gradient(rgba(255,255,255,0.24)_1px,transparent_1px)] [background-size:4px_4px] animate-gift-ambient" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/35" />
       </motion.div>
-      <header className="sticky top-0 z-20 border-b border-white/5 bg-[#05050a]/75 px-4 py-4 backdrop-blur-md sm:px-6">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
+      <header className="header-glass sticky top-0 z-30 px-4 py-4 sm:px-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-3">
           <button
             type="button"
             onClick={onBack}
-            className="font-ui justify-self-start rounded-full border border-white/14 bg-white/5 px-4 py-2 text-sm font-medium text-stone-100/90 transition hover:border-white/22 hover:bg-white/7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/25"
+            className="font-ui btn-primary justify-self-start rounded-full px-4 py-2 text-sm font-medium text-stone-100/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/25"
           >
             ← Назад
           </button>
-          <h1 className="font-display col-start-2 text-center text-lg text-stone-100/90 sm:text-xl">
-            Временная шкала
-          </h1>
+          <div className="col-start-2 flex justify-center">
+            <div className="header-title-pill rounded-full px-4 py-2.5 backdrop-blur-md sm:px-5">
+              <div className="flex items-center justify-center gap-3">
+                <span className="h-px w-7 bg-gradient-to-r from-transparent via-white/25 to-transparent sm:w-10" aria-hidden />
+                <h1 className="font-display text-[0.98rem] leading-none tracking-[0.02em] text-stone-100/92 sm:text-base">
+                  <span className="text-accent-gradient">Временная шкала</span>
+                </h1>
+                <span className="h-px w-7 bg-gradient-to-l from-transparent via-white/25 to-transparent sm:w-10" aria-hidden />
+              </div>
+              <p className="font-ui mt-0.5 text-center text-[0.68rem] font-semibold tracking-[0.24em] text-stone-300/75 sm:text-[0.7rem]">
+                маленькое путешествие
+              </p>
+            </div>
+          </div>
           <span className="col-start-3" aria-hidden />
         </div>
       </header>
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-10 sm:px-8 sm:pt-12 lg:pb-28">
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+          <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay subtle-grid" />
+          <div className="absolute -top-24 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.10)_0%,transparent_65%)] blur-3xl sm:h-[34rem] sm:w-[34rem]" />
+          <div className="absolute -bottom-32 left-[12%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(244,63,94,0.10)_0%,transparent_62%)] blur-3xl" />
+          <div className="absolute -bottom-36 right-[6%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.085)_0%,transparent_64%)] blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+        </div>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,34rem)_minmax(0,1fr)] lg:gap-12 lg:items-start">
           <aside className="hidden lg:block">
             <div className="sticky top-28 space-y-6">
-              <div className="relative rounded-3xl border border-white/10 bg-stone-950/35 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-md">
+              <div className="card-glass relative rounded-3xl p-6">
                 <GiftToken
                   id="gift-side-left"
                   collected={collected.has('gift-side-left')}
@@ -119,7 +137,7 @@ export function TimelineScreen({ onBack, active = true }: TimelineScreenProps) {
 
           <div className="mx-auto w-full max-w-xl">
             <div className="mb-6 lg:hidden">
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-stone-950/35 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.35)] backdrop-blur-md">
+              <div className="card-glass relative overflow-hidden rounded-3xl p-5">
                 <GiftToken
                   id="gift-side-left"
                   collected={collected.has('gift-side-left')}
@@ -138,8 +156,35 @@ export function TimelineScreen({ onBack, active = true }: TimelineScreenProps) {
               </div>
             </div>
 
+            <section className="mb-10">
+              <div className="card-glass relative overflow-hidden rounded-3xl px-6 py-6 sm:px-7">
+                <div className="pointer-events-none absolute inset-0 opacity-35 card-sheen-soft" aria-hidden />
+                <p className="font-ui text-xs font-semibold uppercase tracking-[0.24em] text-rose-200/70">
+                  Перед началом
+                </p>
+                <p className="font-display mt-3 text-[1.45rem] leading-snug text-stone-50 sm:text-[1.65rem]">
+                  Тут собраны маленькие моменты — один за другим.
+                </p>
+                <p className="font-ui mt-3 text-sm leading-relaxed text-stone-200/82">
+                  Листай спокойно. Открывай карточки. И по пути собирай спрятанные 🎁 — они ведут к финальному подарку.
+                </p>
+                <div className="mt-5 flex items-center justify-between gap-3">
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-amber-300/55 via-rose-300/55 to-fuchsia-300/45 transition-[width] duration-700"
+                      style={{ width: `${Math.min(100, (collected.size / totalGifts) * 100)}%` }}
+                      aria-hidden
+                    />
+                  </div>
+                  <span className="font-ui shrink-0 text-xs font-semibold tracking-[0.14em] text-stone-200/75 tabular-nums">
+                    {collected.size}/{totalGifts}
+                  </span>
+                </div>
+              </div>
+            </section>
+
             <div className="mb-12 flex justify-center">
-              <p className="font-ui animate-timeline-hint inline-flex max-w-[min(100%,24rem)] flex-col items-center gap-2 rounded-2xl border border-white/14 bg-[color:var(--card-bg)] px-5 py-3.5 text-center text-[0.8125rem] font-medium leading-snug text-stone-100/90 shadow-[var(--card-shadow)] backdrop-blur-md sm:flex-row sm:text-sm">
+              <p className="font-ui animate-timeline-hint card-glass inline-flex max-w-[min(100%,24rem)] flex-col items-center gap-2 rounded-2xl px-5 py-3.5 text-center text-[0.8125rem] font-medium leading-snug text-stone-100/90 sm:flex-row sm:text-sm">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center self-center rounded-full border border-white/12 bg-white/5 text-base text-stone-100/70" aria-hidden>
                   ↓
                 </span>
@@ -227,7 +272,7 @@ export function TimelineScreen({ onBack, active = true }: TimelineScreenProps) {
 
       <Portal>
         <div className="fixed inset-x-0 bottom-0 z-[999] px-4 pb-[max(12px,env(safe-area-inset-bottom))] lg:hidden">
-          <div className="relative mx-auto max-w-xl rounded-2xl border border-white/14 bg-[color:var(--card-bg)] px-4 py-3 shadow-[var(--card-shadow)] backdrop-blur-md">
+          <div className="card-glass relative mx-auto max-w-xl rounded-2xl px-4 py-3">
             <GiftToken
               id="gift-side-right"
               collected={collected.has('gift-side-right')}
@@ -257,7 +302,7 @@ export function TimelineScreen({ onBack, active = true }: TimelineScreenProps) {
               <button
                 type="button"
                 onClick={() => document.getElementById('timeline-gift')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                className="font-ui rounded-full border border-white/14 bg-white/5 px-3 py-1.5 text-xs font-semibold text-stone-100/90 transition hover:border-white/22 hover:bg-white/7"
+                className="font-ui btn-primary rounded-full px-3 py-1.5 text-xs font-semibold text-stone-100/90"
               >
                 К подарку
               </button>
